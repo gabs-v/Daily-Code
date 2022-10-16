@@ -2,13 +2,12 @@ const mongoose = require('mongoose');
 
 const EntrySchema = new mongoose.Schema({
     description: {
-        type: String
+        type: String,
+        required:[true,"Description is required"]
     },
     discoveries: {
-        type: String
-    },
-    challenges: {
-        type: String
+        type: String,
+        required:[true,"Discoveries are required"]
     }
 },{timestamps: true})
 // Creates an ID

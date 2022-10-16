@@ -1,13 +1,26 @@
-import React from 'react'
-import Lib from 'state';
-import Entry from '../../../server/models/entry.model';
+import React, { useEffect } from 'react'
+import axios from 'axios';
+
 
 const Home = () => {
+    const useEffect = () =>{
+        axios.get('http://localhost:8000/api/entry') 
+        .then((res) =>{
+            console.log(res);
+            console.log(res.data)
+        })
+        .catch((err) => console.log(err))
+    }
+
+
     return (
         <div className='container'>
             <div className='top'>
                 <h1>Code Diary</h1>
-                <h3>Create New Entry</h3>
+                <div>
+                    <h3>All Entires</h3>
+                    <a href='/new' type='button'>Create New Entry</a>
+                </div>
             </div>
             <div className='middle'>
                 <h3>
@@ -22,7 +35,7 @@ const Home = () => {
                         </tr>
                     </thead>
                     <tbody>
-
+                        
                     </tbody>
                 </table>
             </div>
