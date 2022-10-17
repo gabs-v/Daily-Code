@@ -18,12 +18,11 @@ const Form = (props) => {
     const createNewEntry = (e) => {
         e.preventDefault();
 
-        const newEntry = {
-            description:description,
-            discoveries:discoveries
-        };
-        console.log("New entry created!!")
-    }
+        const newEntry = {description,discoveries};
+        console.log("New entry created!!", newEntry);
+        setDescription(" ");
+        setDiscoveries(" ");
+    };
 
     return (
         <div className='container'>
@@ -33,12 +32,13 @@ const Form = (props) => {
                 <form onSubmit={createNewEntry}>
                     <div>
                         <label>Description:</label>
-                        <textarea rows='5' cols='50'  onChange={ (e) => setDescription(e.target.value)} />
+                        <textarea rows='5' cols='50' value={description} onChange={ (e) => setDescription(e.target.value)} />
                     </div>
                     <div>
                         <label>Discoveries:</label>
-                        <textarea rows='5' cols='50' onChange={ (e) => setDiscoveries(e.target.value)} />
+                        <textarea rows='5' cols='50' value={discoveries} onChange={ (e) => setDiscoveries(e.target.value)} />
                     </div>
+                    <input type='submit' value='Create New Entry'/>
                 </form>
             </div>
         </div>
